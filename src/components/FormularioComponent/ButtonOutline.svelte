@@ -3,8 +3,11 @@
   export let type;
   export let style;
   export let text;
+  export let event;
 </script>
 
 <div class="col-md-{cols}">
-  <button class="btn {style} w-100 btn-{type}">{text}</button>
+  <button onClick={event} class="btn {style} w-100 btn-outline-{type}"
+    >{text}</button
+  >
 </div>

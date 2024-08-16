@@ -5,14 +5,15 @@
   export let href;
 </script>
 
-<div
-  class="custom-hover bg-body-tertiary p-4+ flex flex-col justify-content-center gap-4 align-items-center col-md-{cols} card shadow-lg"
+<a
+  href="/{href}"
+  class="custom-hover text-center bg-body-tertiary flex flex-col justify-content-center gap-4 col-md-{cols} card shadow-lg"
 >
-  <a href="/{href}" class="nav-item mx-auto">
+  <div class="mx-auto">
     <span>{text}</span>
     <span>{text_2}</span>
-  </a>
-</div>
+  </div>
+</a>
 
 <style>
   .card {
@@ -28,8 +29,16 @@
   .custom-hover:hover {
     background-color: #343a40 !important;
     cursor: pointer;
+    color: #f2f2f2;
     transform: scale(1.01);
     transition: all 0.3s ease-in-out;
     /* Cambia el color de fondo al hacer hover */
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+    font-weight: bold;
   }
 </style>
