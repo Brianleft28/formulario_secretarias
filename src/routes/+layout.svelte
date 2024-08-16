@@ -3,12 +3,12 @@
 </script>
 
 <Header />
-<div class="container">
+<div class="container mx-auto">
   <slot />
 </div>
 
 <style>
   .container {
-    margin-top: 100px;
+    margin-top: 125px;
   }
 </style>
