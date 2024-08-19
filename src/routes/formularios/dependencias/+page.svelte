@@ -34,7 +34,7 @@
         { id: 1, nombre: "Coordinación" },
         { id: 2, nombre: "Dirección" },
         { id: 3, nombre: "Jefatura" },
-        { id: 4, nombre: "Coordinación" },
+        { id: 4, nombre: "Subsecretaria" },
       ]}
       cols={6}
     />
