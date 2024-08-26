@@ -1,6 +1,7 @@
 import type { Secretaria } from "../../types/secretarias";
 
 const base_url = "http://localhost:3000/api/v1/secretarias";
+
 export class SecretariaService {
   // validaciones
   static validateNombre(nombre: string) {

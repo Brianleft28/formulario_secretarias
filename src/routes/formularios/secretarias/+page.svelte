@@ -28,7 +28,6 @@
     } catch (error) {
       if (error instanceof Error) {
         alert(error.message);
-        console.error(error);
       }
     }
   };
