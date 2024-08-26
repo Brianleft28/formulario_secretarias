@@ -31,7 +31,7 @@
   const handleBack = () => {
     console.log("ay");
   };
-  //
+
   function getDependenciaInstance(dependencia: string) {
     switch (dependencia) {
       case "coordinaciones":
