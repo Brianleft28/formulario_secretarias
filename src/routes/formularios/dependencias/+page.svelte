@@ -4,6 +4,9 @@
   import Input from "../../../components/FormularioComponent/Input.svelte";
   import Select from "../../../components/FormularioComponent/Select.svelte";
 
+  let nombre = "";
+  let dependencia = "";
+
   const handleBack = () => {
     console.log("ay");
   };
@@ -16,13 +19,14 @@
 </div>
 
 <div
-  class="mt-4 gap-2 py-4 pb-4 container bg-body-tertiary pb-3 justify-content-center mx-auto row shadow-lg"
+  class="mt-2 py-4 pb-4 container bg-body-tertiary pb-3 justify-content-center mx-auto row shadow-lg"
 >
   <!-- DEPENDENCIAS -->
   <CardLabel cols={12}>
     <Input
       label={"Nombre de la dependencia"}
       style={"mt-2"}
+      bind:valor={nombre}
       cols={6}
       placeholder="Nombre de la dirección, coordinación o subsecretaria"
     />
@@ -30,6 +34,7 @@
     <Select
       style={"mt-2"}
       label={"Seleccione el tipo de dependencia"}
+      bind:valor={dependencia}
       data={[
         { id: 1, nombre: "Coordinación" },
         { id: 2, nombre: "Dirección" },
@@ -66,7 +71,7 @@
       <ButtonOutline
         style={"mt-md-4 col w-full mt-0"}
         text={"Volver"}
-        type={"danger"}
+        color={"dark"}
         event={handleBack}
         cols={12}
       />
@@ -75,7 +80,7 @@
       style={"mt-md-4 mt-0 col w-full"}
       text={"Agregar"}
       event={"default"}
-      type={"primary"}
+      color={"dark"}
       cols={6}
     />
   </CardLabel>

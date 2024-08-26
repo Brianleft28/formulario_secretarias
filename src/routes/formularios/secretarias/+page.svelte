@@ -51,7 +51,7 @@
       cols={6}
       bind:valor={nombre}
       placeholder="Nombre de secretaria"
-    />
+    /> 
     <Input
       style={"mt-1"}
       bind:valor={telefono}
