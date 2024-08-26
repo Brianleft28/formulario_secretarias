@@ -1,35 +1,35 @@
-<script>
+<script lang="ts">
   import ButtonOutline from "../../../components/FormularioComponent/ButtonOutline.svelte";
   import CardLabel from "../../../components/FormularioComponent/CardLabel.svelte";
   import Input from "../../../components/FormularioComponent/Input.svelte";
-  import Select from "../../../components/FormularioComponent/Select.svelte";
-  import { getSecretarias, createSecretaria } from "$lib/secretarias";
+  import { SecretariaService } from "$lib/secretarias";
+
+  const secretariaServices = new SecretariaService();
 
   let nombre = "";
-  let telefono = "";
+  let telefono: string = "";
   let correo = "";
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (!nombre.trim() || !telefono.trim() || !correo.trim()) {
-      alert("Por favor, complete todos los campos");
-      return;
-    }
 
-    if (telefono.length < 8) {
-      alert("El teléfono debe tener al menos 8 dígitos");
-      return;
-    }
-    if (!correo.includes("@")) {
-      alert("Introduzca una dirección válida");
-      return;
-    }
     try {
-      const response = await createSecretaria({ nombre, telefono, correo });
-      console.log(response);
+      const validate = SecretariaService.validate(nombre, telefono, correo);
+      alert(validate);
+
+      const response = await secretariaServices.createSecretaria({
+        nombre,
+        telefono,
+        correo,
+      });
+
       alert("Secretaria creada con éxito");
+      return response;
     } catch (error) {
-      console.error(error);
+      if (error instanceof Error) {
+        alert(error.message);
+        console.error(error);
+      }
     }
   };
 </script>
@@ -51,7 +51,7 @@
       cols={6}
       bind:valor={nombre}
       placeholder="Nombre de secretaria"
-    /> 
+    />
     <Input
       style={"mt-1"}
       bind:valor={telefono}
